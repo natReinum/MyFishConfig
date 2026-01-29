@@ -46,3 +46,5 @@ set -U fish_greeting
 
 alias cbc="xclip -selection clipboard"
 alias cbp="xclip -selection clipboard -o"
+alias jtr="$HOME/cyber_tools/pswd_cracking/JtR/run/john"
+alias zip2jtr="$HOME/cyber_tools/pswd_cracking/JtR/run/zip2john"
