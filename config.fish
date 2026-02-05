@@ -38,13 +38,11 @@ function fish_greeting
 	echo (set_color normal)
 end
 
-if status is-interactive
-    # Commands to run in interactive sessions can go here
+function make++
+    find . -maxdepth 1 -type d ! -name . -exec make --no-print-directory -C {} $argv ';'
 end
 
 set -U fish_greeting
 
 alias cbc="xclip -selection clipboard"
 alias cbp="xclip -selection clipboard -o"
-alias jtr="$HOME/cyber_tools/pswd_cracking/JtR/run/john"
-alias zip2jtr="$HOME/cyber_tools/pswd_cracking/JtR/run/zip2john"
