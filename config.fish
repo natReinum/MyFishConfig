@@ -39,10 +39,14 @@ function fish_greeting
 end
 
 function make++
-    find . -maxdepth 1 -type d ! -name . -exec make --no-print-directory -C {} $argv ';'
+    find . -maxdepth 1 -type d ! -name '.*' -exec make --no-print-directory -C {} $argv ';'
 end
 
-function alias update-fish-config
+function dl-subject
+    curl $argv --output en.subject.pdf
+end
+
+function update-fish-config
 	git clone https://github.com/natReinum/MyFishConfig.git /tmp/config_fish_temp
 	cat /tmp/config_fish_temp/config.fish > ~/.config/fish/config.fish
     rm -fr /tmp/config_fish_temp
@@ -60,7 +64,8 @@ function open-port-udp
     iptables -A INPUT -p udp --dport $argv -j ACCEPT
 end
 
-set -U fish_greeting
+set -g fish_greeting
 
 alias cbc="xclip -selection clipboard"
 alias cbp="xclip -selection clipboard -o"
+alias starwars="telnet movie.gabe565.com"
